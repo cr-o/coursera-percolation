@@ -3,7 +3,8 @@
  *  Date:
  *  Description:
  **************************************************************************** */
-
+// import edu.princeton.cs.algs4.StdRandom;
+// import edu.princeton.cs.algs4.StdStats;
 public class PercolationStats {
 
     // perform independent trials on an n-by-n grid
@@ -13,7 +14,6 @@ public class PercolationStats {
     // // sample mean of percolation threshold
     // public double mean() {
     // }
-    //
     //
     // // sample standard deviation of percolation threshold
     // public double stddev() {
