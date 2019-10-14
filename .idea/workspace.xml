@@ -20,26 +20,18 @@
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-        <option value="Interface" />
-      </list>
-    </option>
     <option name="SCHEME" value="Project" />
   </component>
   <component name="FindBugs-IDEA-Workspace">
     <analyzeAfterCompile>true</analyzeAfterCompile>
     <toolWindowToFront>false</toolWindowToFront>
   </component>
-  <component name="ProjectId" id="1S8A0bSSu1crQVuRDgULvDKhrfh" />
+  <component name="ProjectId" id="1SCH9kvfm3oZrHpcMJGfCLExgnG" />
   <component name="PropertiesComponent">
     <property name="ToolWindowMessages.ShowToolbar" value="false" />
     <property name="ToolWindowRun.ShowToolbar" value="false" />
-    <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="Errors" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="settings.saveactions" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -53,16 +45,10 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Percolation">
-    <configuration name="HelloWorld" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="HelloWorld" />
-      <module name="Algorithms, Part I" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager">
     <configuration name="Percolation" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Percolation" />
       <module name="Algorithms, Part I" />
-      <option name="PROGRAM_PARAMETERS" value="3" />
       <method v="2" />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">

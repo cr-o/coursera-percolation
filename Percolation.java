@@ -40,16 +40,24 @@ public class Percolation {
             grid[row][col] = true;
         }
         if (row - 1 >= 0) {
-            QU.union(inputN * (row) + col, inputN * (row - 1) + col);
+            if (isOpen(row - 1, col)) {
+                QU.union(inputN * (row) + col, inputN * (row - 1) + col);
+            }
         }
         if (row + 1 < inputN) {
-            QU.union(inputN * (row) + col, inputN * (row + 1) + col);
+            if (isOpen(row + 1, col)) {
+                QU.union(inputN * (row) + col, inputN * (row + 1) + col);
+            }
         }
         if (col - 1 >= 0) {
-            QU.union(inputN * (row) + col, inputN * (row) + col - 1);
+            if (isOpen(row, col - 1)) {
+                QU.union(inputN * (row) + col, inputN * (row) + col - 1);
+            }
         }
         if (col + 1 < inputN) {
-            QU.union(inputN * (row) + col, inputN * (row) + col + 1);
+            if (isOpen(row, col + 1)) {
+                QU.union(inputN * (row) + col, inputN * (row) + col + 1);
+            }
         }
         // make sure checking row is within bounds
         // connect this to all adjacent sites (left right top bottom)
@@ -97,7 +105,6 @@ public class Percolation {
         }
         Percolation testPrec = new Percolation(n);
 
-
         testPrec.open(0, 0);
         System.out.printf("%b", testPrec.isOpen(0, 0));
         System.out.println();
@@ -105,19 +112,18 @@ public class Percolation {
         System.out.printf("%b", testPrec.percolates());
         System.out.println();
 
-        testPrec.open(0, 1);
-        System.out.printf("%b", testPrec.isOpen(0, 1));
+        testPrec.open(1, 0);
+        System.out.printf("%b", testPrec.isOpen(1, 0));
         System.out.println();
 
         System.out.printf("%b", testPrec.percolates());
         System.out.println();
 
-        testPrec.open(0, 2);
-        System.out.printf("%b", testPrec.isOpen(0, 2));
+        testPrec.open(2, 0);
+        System.out.printf("%b", testPrec.isOpen(2, 0));
         System.out.println();
 
         System.out.printf("%b", testPrec.percolates());
         System.out.println();
-
     }
 }
