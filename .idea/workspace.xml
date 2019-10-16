@@ -45,17 +45,23 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.PercolationStats">
+  <component name="RunManager" selected="Application.PercolationVisualizer">
     <configuration name="Percolation" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Percolation" />
       <module name="Algorithms, Part I" />
-      <option name="PROGRAM_PARAMETERS" value="3" />
+      <option name="PROGRAM_PARAMETERS" value="5 5" />
       <method v="2" />
     </configuration>
     <configuration name="PercolationStats" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="PercolationStats" />
       <module name="Algorithms, Part I" />
-      <option name="PROGRAM_PARAMETERS" value="100 100000" />
+      <option name="PROGRAM_PARAMETERS" value="5  100" />
+      <method v="2" />
+    </configuration>
+    <configuration name="PercolationVisualizer" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="PercolationVisualizer" />
+      <module name="Algorithms, Part I" />
+      <option name="PROGRAM_PARAMETERS" value="input20.txt" />
       <method v="2" />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">

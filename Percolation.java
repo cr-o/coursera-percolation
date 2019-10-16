@@ -1,15 +1,9 @@
-/* *****************************************************************************
- *  Name:
- *  Date:
- *  Description:
- **************************************************************************** */
-
 import edu.princeton.cs.algs4.WeightedQuickUnionUF;
 
 public class Percolation {
     private boolean[][] grid;
-    private WeightedQuickUnionUF qU;
-    private int inputN;
+    private final WeightedQuickUnionUF qU;
+    private final int inputN;
 
     // creates n-by-n grid, with all sites initially blocked
     public Percolation(int n) {
@@ -38,31 +32,31 @@ public class Percolation {
 
     // opens the site (row, col) if it is not open already
     public void open(int row, int col) {
-        if (row < 0 || row >= inputN || col < 0 || col >= inputN) {
+        if (row < 1 || row > inputN || col < 1 || col > inputN) {
             throw new IllegalArgumentException("Arguments are out of bounds");
         }
 
-        if (!grid[row][col]) {
-            grid[row][col] = true;
+        if (!grid[row - 1][col - 1]) {
+            grid[row - 1][col - 1] = true;
         }
-        if (row - 1 >= 0) {
+        if (row - 2 >= 0) {
             if (isOpen(row - 1, col)) {
-                qU.union(inputN * (row) + col, inputN * (row - 1) + col);
+                qU.union(inputN * (row - 1) + col - 1, inputN * (row - 2) + col - 1);
             }
         }
-        if (row + 1 < inputN) {
+        if (row < inputN) {
             if (isOpen(row + 1, col)) {
-                qU.union(inputN * (row) + col, inputN * (row + 1) + col);
+                qU.union(inputN * (row - 1) + col - 1, inputN * (row) + col - 1);
             }
         }
-        if (col - 1 >= 0) {
+        if (col - 2 >= 0) {
             if (isOpen(row, col - 1)) {
-                qU.union(inputN * (row) + col, inputN * (row) + col - 1);
+                qU.union(inputN * (row - 1) + col - 1, inputN * (row - 1) + col - 2);
             }
         }
-        if (col + 1 < inputN) {
+        if (col < inputN) {
             if (isOpen(row, col + 1)) {
-                qU.union(inputN * (row) + col, inputN * (row) + col + 1);
+                qU.union(inputN * (row - 1) + col - 1, inputN * (row - 1) + col);
             }
         }
         // make sure checking row is within bounds
@@ -76,18 +70,23 @@ public class Percolation {
 
     // is the site (row, col) open?
     public boolean isOpen(int row, int col) {
-        if (row < 0 || row >= inputN || col < 0 || col >= inputN) {
+        if (row < 1 || row > inputN || col < 1 || col > inputN) {
             throw new IllegalArgumentException("Arguments are out of bounds");
         }
-        return grid[row][col];
+        return grid[row - 1][col - 1];
     }
 
     // is the site (row, col) full?
     public boolean isFull(int row, int col) {
-        if (row < 0 || row >= inputN || col < 0 || col >= inputN) {
+        if (row < 1 || row > inputN || col < 1 || col > inputN) {
             throw new IllegalArgumentException("Arguments are out of bounds");
         }
-        return qU.connected(inputN * (row) + col, inputN * inputN);
+        if (!isOpen(row, col)) {
+            return false;
+        }
+        else {
+            return qU.connected(inputN * (row - 1) + col - 1, inputN * inputN);
+        }
     }
 
     // returns the number of open sites
@@ -111,31 +110,6 @@ public class Percolation {
 
     // test client (optional)
     public static void main(String[] args) {
-        int n = 20;
-        if (args.length == 1) {
-            n = Integer.parseInt(args[0]);
-        }
-        Percolation testPrec = new Percolation(n);
-
-        testPrec.open(0, 0);
-        System.out.printf("%b", testPrec.isOpen(0, 0));
-        System.out.println();
-
-        System.out.printf("%b", testPrec.percolates());
-        System.out.println();
-
-        testPrec.open(1, 0);
-        System.out.printf("%b", testPrec.isOpen(1, 0));
-        System.out.println();
-
-        System.out.printf("%b", testPrec.percolates());
-        System.out.println();
-
-        testPrec.open(2, 0);
-        System.out.printf("%b", testPrec.isOpen(2, 0));
-        System.out.println();
-
-        System.out.printf("%b", testPrec.percolates());
-        System.out.println();
+        // blank
     }
 }
