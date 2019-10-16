@@ -9,22 +9,27 @@ import edu.princeton.cs.algs4.StdRandom;
 import edu.princeton.cs.algs4.StdStats;
 
 public class PercolationStats {
-    private int[] resultArray;
-    private int trialInput;
+    private double[] resultArray;
+    private double trialInput;
 
     // perform independent trials on an n-by-n grid
     public PercolationStats(int n, int trials) {
-        int count;
+        double count;
         Percolation percolation;
-        trialInput = trials;
-        resultArray = new int[trials];
+        trialInput = (double) trials;
+        resultArray = new double[trials];
         for (int i = 0; i < trials; i++) {
             count = 0;
             percolation = new Percolation(n);
             while (!percolation.percolates()) {
-                percolation.open(StdRandom.uniform(0, n), StdRandom.uniform(0, n));
-                count++;
+                int row = StdRandom.uniform(0, n);
+                int col = StdRandom.uniform(0, n);
+                if (!percolation.isOpen(row, col)) {
+                    percolation.open(row, col);
+                    count++;
+                }
             }
+            count = count / (n * n);
             resultArray[i] = count;
         }
     }
